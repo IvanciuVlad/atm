@@ -1,5 +1,5 @@
 import {Store} from "pullstate";
-import data from '../data/airports2.json';
+import data from '../data/airports.json';
 
 
 type AirportData = {

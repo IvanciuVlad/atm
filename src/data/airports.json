@@ -1,212 +1,242 @@
-{
-  "1": {
+[
+  {
+    "id": 1,
     "name": "Heathrow Airport",
     "ICAO": "EGLL",
     "lat": 51.4775,
     "lng": -0.461389,
     "passengers": 80886589
   },
-  "2": {
+  {
+    "id": 2,
     "name": "Charles de Gaulle Airport",
     "ICAO": "LFPG",
     "lat": 49.009722,
     "lng": 2.547778,
     "passengers": 76150007
   },
-  "3": {
+  {
+    "id": 3,
     "name": "Amsterdam Airport Schiphol",
     "ICAO": "EHAM",
     "lat": 52.308056,
     "lng": 4.764167,
     "passengers": 71707144
   },
-  "4": {
+  {
+    "id": 4,
     "name": "Frankfurt am Main Airport",
     "ICAO": "EDDF",
     "lat": 50.033306,
     "lng": 8.570456,
     "passengers": 70556072
   },
-  "5": {
+  {
+    "id": 5,
     "name": "Adolfo Suárez Madrid–Barajas Airport",
     "ICAO": "LEMD",
     "lat": 40.472222,
     "lng": -3.560833,
     "passengers": 61734037
   },
-  "6": {
+  {
+    "id": 6,
     "name": "Josep Tarradellas Barcelona–El Prat Airport",
     "ICAO": "LEBL",
     "lat": 41.296944,
     "lng": 2.078333,
     "passengers": 52686314
   },
-  "7": {
+  {
+    "id": 7,
     "name": "Istanbul Airport",
     "ICAO": "LTFM",
     "lat": 41.275278,
     "lng": 28.751944,
     "passengers": 52009220
   },
-  "8": {
+  {
+    "id": 8,
     "name": "Sheremetyevo International Airport",
     "ICAO": "UUEE",
     "lat": 55.9725,
     "lng": 37.413056,
     "passengers": 49438545
   },
-  "9": {
+  {
+    "id": 9,
     "name": "Munich Airport",
     "ICAO": "EDDM",
     "lat": 48.353783,
     "lng": 11.786086,
     "passengers": 47941348
   },
-  "10": {
+  {
+    "id": 10,
     "name": "Gatwick Airport",
     "ICAO": "EGKK",
     "lat": 51.148056,
     "lng": -0.190278,
     "passengers": 46574786
   },
-  "11": {
+  {
+    "id": 11,
     "name": "Leonardo da Vinci–Fiumicino Airport",
     "ICAO": "LIRF",
     "lat": 41.800278,
     "lng": 12.238889,
     "passengers": 43532573
   },
-  "12": {
+  {
+    "id": 12,
     "name": "Dublin Airport",
     "ICAO": "EIDW",
     "lat": 53.421389,
     "lng": -6.27,
     "passengers": 32907673
   },
-  "13": {
+  {
+    "id": 13,
     "name": "Orly Airport",
     "ICAO": "LFPO",
     "lat": 48.723333,
     "lng": 2.379444,
     "passengers": 31853049
   },
-  "14": {
+  {
+    "id": 14,
     "name": "Vienna International Airport",
     "ICAO": "LOWW",
     "lat": 48.110278,
     "lng": 16.569722,
     "passengers": 31662189
   },
-  "15": {
+  {
+    "id": 15,
     "name": "Zurich Airport",
     "ICAO": "LSZH",
     "lat": 47.458056,
     "lng": 8.548056,
     "passengers": 31507692
   },
-  "16": {
+  {
+    "id": 16,
     "name": "Lisbon Airport",
     "ICAO": "LPPT",
     "lat": 38.774167,
     "lng": -9.134167,
     "passengers": 31173000
   },
-  "17": {
+  {
+    "id": 17,
     "name": "Copenhagen Airport",
     "ICAO": "EKCH",
     "lat": 55.617917,
     "lng": 12.655972,
     "passengers": 30256703
   },
-  "18": {
+  {
+    "id": 18,
     "name": "Palma de Mallorca Airport",
     "ICAO": "LEPA",
     "lat": 39.551667,
     "lng": 2.738889,
     "passengers": 29721123
   },
-  "19": {
+  {
+    "id": 19,
     "name": "Manchester Airport",
     "ICAO": "EGCC",
     "lat": 53.353889,
     "lng": -2.275,
     "passengers": 29367477
   },
-  "20": {
+  {
+    "id": 20,
     "name": "Malpensa Airport",
     "ICAO": "LIMC",
     "lat": 45.63,
     "lng": 8.723056,
     "passengers": 28846299
   },
-  "21": {
+  {
+    "id": 21,
     "name": "Oslo Airport, Gardermoen",
     "ICAO": "ENGM",
     "lat": 60.202778,
     "lng": 11.083889,
     "passengers": 28592619
   },
-  "22": {
+  {
+    "id": 22,
     "name": "Domodedovo International Airport",
     "ICAO": "UUDD",
     "lat": 55.408611,
     "lng": 37.906389,
     "passengers": 28252337
   },
-  "23": {
+  {
+    "id": 23,
     "name": "London Stansted Airport",
     "ICAO": "EGSS",
     "lat": 51.885,
     "lng": 0.235,
     "passengers": 28124292
   },
-  "24": {
+  {
+    "id": 24,
     "name": "Brussels Airport",
     "ICAO": "EBBR",
     "lat": 50.901389,
     "lng": 4.484444,
     "passengers": 26360003
   },
-  "25": {
+  {
+    "id": 25,
     "name": "Stockholm Arlanda Airport",
     "ICAO": "ESSA",
     "lat": 59.651944,
     "lng": 17.918611,
     "passengers": 25642703
   },
-  "26": {
+  {
+    "id": 26,
     "name": "Athens International Airport",
     "ICAO": "LGAV",
     "lat": 37.9367,
     "lng": 23.9445,
     "passengers": 25574030
   },
-  "27": {
+  {
+    "id": 27,
     "name": "Düsseldorf Airport",
     "ICAO": "EDDL",
     "lat": 51.280925,
     "lng": 6.757311,
     "passengers": 25507566
   },
-  "28": {
+  {
+    "id": 28,
     "name": "Berlin Tegel Airport",
     "ICAO": "EDDT",
     "lat": 52.559686,
     "lng": 3.287711,
     "passengers": 24227570
   },
-  "29": {
+  {
+    "id": 29,
     "name": "Vnukovo International Airport",
     "ICAO": "UUWW",
     "lat": 55.599167,
     "lng": 37.273056,
     "passengers": 24001521
   },
-  "30": {
+  {
+    "id": 30,
     "name": "Helsinki Airport",
     "ICAO": "EFHK",
     "lat": 60.317222,
     "lng": 24.963333,
     "passengers": 21861082
   }
-}
+]

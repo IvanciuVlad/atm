@@ -10,6 +10,7 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import {useEffect} from "react";
 
 import {Badge, Container} from "react-bootstrap";
+import '../styles/App.css';
 
 const DefaultIcon = L.icon({
     iconUrl: icon,
@@ -22,6 +23,8 @@ L.Marker.prototype.options.icon = DefaultIcon;
 const centerPosition: LatLngExpression = [48.20, 16.30]
 const zoom: number = 5;
 
+const humanize = require('humanize-plus');
+
 
 export const App = (): JSX.Element => {
     const airportData = UIStore.useState(s => s.data);
@@ -31,12 +34,12 @@ export const App = (): JSX.Element => {
     });
 
     return (
-        <Container fluid>
+        <Container className="entire-page" fluid>
             <div >
-                <h3 className="section-title text-center m-5">Traffic Network Generator</h3>
+                <h2 className="section-title text-center m-5">Traffic Network Generator</h2>
             </div>
 
-            <MapContainer center={centerPosition} zoom={zoom} scrollWheelZoom={false} className="container" style={{height: '800px'}}>
+            <MapContainer center={centerPosition} zoom={zoom} scrollWheelZoom={true} doubleClickZoom={false} className="container p-3" style={{height: '800px'}}>
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -49,7 +52,7 @@ export const App = (): JSX.Element => {
                                 <Popup>
                                     <h4>{airport.name}</h4>
                                     <Badge variant="primary">{airport.ICAO}</Badge>
-                                    <p>Number of passengers in 2019: {airport.passengers}</p>
+                                    <p>{humanize.compactInteger(airport.passengers, 2)} passengers in 2019</p>
                                 </Popup>
                             </Marker>
                         );
