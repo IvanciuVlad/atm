@@ -33,31 +33,43 @@ export const App = (): JSX.Element => {
         console.log(airportData[0]);
     });
 
-    return (
-        <Container className="entire-page" fluid>
-            <div >
-                <h2 className="section-title text-center m-5">Traffic Network Generator</h2>
-            </div>
+    function getMapMarkers() {
+        return <>
+            {
+                airportData.map(airport => {
+                    const airportPosition: LatLngExpression = [airport.lat, airport.lng];
+                    return (
+                        <Marker position={airportPosition} icon={DefaultIcon}>
+                            <Popup>
+                                <h4>
+                                    {airport.name}
+                                    <br />
+                                    <Badge variant="primary">{airport.ICAO}</Badge>
+                                </h4>
 
-            <MapContainer center={centerPosition} zoom={zoom} scrollWheelZoom={true} doubleClickZoom={false} className="container p-3" style={{height: '800px'}}>
+                                {humanize.compactInteger(airport.passengers, 2)} passengers in 2019
+                            </Popup>
+                        </Marker>
+                    );
+                })
+            }
+        </>;
+    }
+
+    return (
+        <Container className="rounded border border-light entire-page">
+            <Container fluid >
+                <h2 className="section-title text-center m-5">Traffic Network Generator</h2>
+            </Container>
+
+            <MapContainer center={centerPosition} zoom={zoom} scrollWheelZoom={true} doubleClickZoom={false}
+                          className="container p-3" style={{height: '800px'}}>
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                {
-                    airportData.map(airport => {
-                        const airportPosition: LatLngExpression = [airport.lat, airport.lng];
-                        return (
-                            <Marker position={airportPosition} icon={DefaultIcon}>
-                                <Popup>
-                                    <h4>{airport.name}</h4>
-                                    <Badge variant="primary">{airport.ICAO}</Badge>
-                                    <p>{humanize.compactInteger(airport.passengers, 2)} passengers in 2019</p>
-                                </Popup>
-                            </Marker>
-                        );
-                    })
-                }
+
+                {getMapMarkers()}
             </MapContainer>
         </Container>
     )
