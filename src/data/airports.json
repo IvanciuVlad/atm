@@ -238,5 +238,405 @@
     "lat": 60.317222,
     "lng": 24.963333,
     "passengers": 21861082
+  },
+  {
+    "id": 31,
+    "name": "Málaga Airport",
+    "ICAO": "LEMG",
+    "lat": 36.675,
+    "lng": -4.499167,
+    "passengers": 19856299
+  },
+  {
+    "id": 32,
+    "name": "Pulkovo Airport",
+    "ICAO": "ULLI",
+    "lat": 59.800278,
+    "lng": 30.2625,
+    "passengers": 19581262
+  },
+  {
+    "id": 33,
+    "name": "Warsaw Chopin Airport",
+    "ICAO": "EPWA",
+    "lat": 52.165833,
+    "lng": 20.967222,
+    "passengers": 18869302
+  },
+  {
+    "id": 34,
+    "name": "Luton Airport",
+    "ICAO": "EGGW",
+    "lat": 51.874722,
+    "lng": -0.368333,
+    "passengers": 18213901
+  },
+  {
+    "id": 35,
+    "name": "Geneva Airport",
+    "ICAO": "LSGG",
+    "lat": 46.238333,
+    "lng": 6.109444,
+    "passengers": 17926629
+  },
+  {
+    "id": 36,
+    "name": "Václav Havel Airport Prague",
+    "ICAO": "LKPR",
+    "lat": 50.100833,
+    "lng": 14.26,
+    "passengers": 17804900
+  },
+  {
+    "id": 37,
+    "name": "Hamburg Airport",
+    "ICAO": "EDDH",
+    "lat": 53.630389,
+    "lng": 9.988228,
+    "passengers": 17308773
+  },
+  {
+    "id": 38,
+    "name": "Budapest Ferenc Liszt International Airport",
+    "ICAO": "LHBP",
+    "lat": 47.439444,
+    "lng": 19.261944,
+    "passengers": 16173399
+  },
+  {
+    "id": 39,
+    "name": "Istanbul Atatürk Airport",
+    "ICAO": "LTBA",
+    "lat": 40.976111,
+    "lng": 28.814167,
+    "passengers": 16112804
+  },
+  {
+    "id": 40,
+    "name": "Boryspil International Airport",
+    "ICAO": "UKBB",
+    "lat": 50.344722,
+    "lng": 30.893333,
+    "passengers": 15260281
+  },
+  {
+    "id": 41,
+    "name": "Alicante Airport",
+    "ICAO": "LEAL",
+    "lat": 38.282222,
+    "lng": -0.558056,
+    "passengers": 15047840
+  },
+  {
+    "id": 42,
+    "name": "Edinburgh Airport",
+    "ICAO": "EGPH",
+    "lat": 55.95,
+    "lng": -3.3725,
+    "passengers": 14733966
+  },
+  {
+    "id": 43,
+    "name": "Henri Coandă International Airport",
+    "ICAO": "LROP",
+    "lat": 44.571111,
+    "lng": 26.085,
+    "passengers": 14707376
+  },
+  {
+    "id": 44,
+    "name": "Nice Côte d'Azur Airport",
+    "ICAO": "LFMN",
+    "lat": 43.665278,
+    "lng": 7.215,
+    "passengers": 14485423
+  },
+  {
+    "id": 45,
+    "name": "Orio al Serio International Airport",
+    "ICAO": "LIME",
+    "lat": 45.668889,
+    "lng": 9.700278,
+    "passengers": 13857257
+  },
+  {
+    "id": 46,
+    "name": "Porto Airport",
+    "ICAO": "LPPR",
+    "lat": 41.235556,
+    "lng": -8.678056,
+    "passengers": 13107000
+  },
+  {
+    "id": 47,
+    "name": "Stuttgart Airport",
+    "ICAO": "EDDS",
+    "lat": 48.689878,
+    "lng": 9.221964,
+    "passengers": 12721441
+  },
+  {
+    "id": 48,
+    "name": "Birmingham Airport",
+    "ICAO": "EGBB",
+    "lat": 52.453889,
+    "lng": -1.748056,
+    "passengers": 12646456
+  },
+  {
+    "id": 49,
+    "name": "Cologne Bonn Airport",
+    "ICAO": "EDDK",
+    "lat": 50.865917,
+    "lng": 7.142744,
+    "passengers": 12368519
+  },
+  {
+    "id": 50,
+    "name": "Lyon–Saint-Exupéry Airport",
+    "ICAO": "LFLL",
+    "lat": 45.725556,
+    "lng": 5.081111,
+    "passengers": 11739600
+  },
+  {
+    "id": 51,
+    "name": "Venice Marco Polo Airport",
+    "ICAO": "LIPZ",
+    "lat": 45.505278,
+    "lng": 12.351944,
+    "passengers": 11561594
+  },
+  {
+    "id": 52,
+    "name": "Berlin Schönefeld Airport",
+    "ICAO": "EDDB",
+    "lat": 52.362247,
+    "lng": 13.500672,
+    "passengers": 11417435
+  },
+  {
+    "id": 53,
+    "name": "Naples Airport",
+    "ICAO": "LIRN",
+    "lat": 40.884444,
+    "lng": 14.290833,
+    "passengers": 10860068
+  },
+  {
+    "id": 54,
+    "name": "Catania-Fontanarossa Airport",
+    "ICAO": "LICC",
+    "lat": 37.466667,
+    "lng": 15.063889,
+    "passengers": 10223113
+  },
+  {
+    "id": 55,
+    "name": "Marseille Provence Airport",
+    "ICAO": "LFML",
+    "lat": 43.436667,
+    "lng": 5.215,
+    "passengers": 10151743
+  },
+  {
+    "id": 56,
+    "name": "Toulouse–Blagnac Airport",
+    "ICAO": "LFBO",
+    "lat": 43.635,
+    "lng": 1.367778,
+    "passengers": 9620224
+  },
+  {
+    "id": 57,
+    "name": "Bologna Guglielmo Marconi Airport",
+    "ICAO": "LIPE",
+    "lat": 44.530833,
+    "lng": 11.296944,
+    "passengers": 9405920
+  },
+  {
+    "id": 58,
+    "name": "EuroAirport Basel Mulhouse Freiburg",
+    "ICAO": "EDTF",
+    "lat": 48.0205,
+    "lng": 7.833667,
+    "passengers": 9094821
+  },
+  {
+    "id": 59,
+    "name": "Faro Airport",
+    "ICAO": "LPFR",
+    "lat": 37.014444,
+    "lng": -7.965833,
+    "passengers": 9009000
+  },
+  {
+    "id": 60,
+    "name": "Bristol Airport",
+    "ICAO": "EGGD",
+    "lat": 51.382778,
+    "lng": -2.719167,
+    "passengers": 8959679
+  },
+  {
+    "id": 61,
+    "name": "Glasgow Airport",
+    "ICAO": "EGPF",
+    "lat": 55.871944,
+    "lng": -4.433056,
+    "passengers": 8843214
+  },
+  {
+    "id": 62,
+    "name": "Valencia Airport",
+    "ICAO": "LEVC",
+    "lat": 39.489444,
+    "lng": -0.481667,
+    "passengers": 8539403
+  },
+  {
+    "id": 63,
+    "name": "Kraków John Paul II International Airport",
+    "ICAO": "EPKK",
+    "lat": 50.077778,
+    "lng": 19.784722,
+    "passengers": 8410817
+  },
+  {
+    "id": 64,
+    "name": "Brussels South Charleroi Airport",
+    "ICAO": "EBCI",
+    "lat": 50.46,
+    "lng": 4.452778,
+    "passengers": 8224450
+  },
+  {
+    "id": 65,
+    "name": "Ibiza Airport",
+    "ICAO": "LEIB",
+    "lat": 38.872778,
+    "lng": 1.373056,
+    "passengers": 8155635
+  },
+  {
+    "id": 66,
+    "name": "Heraklion International Airport",
+    "ICAO": "LGIR",
+    "lat": 35.339722,
+    "lng": 25.180278,
+    "passengers": 7839255
+  },
+  {
+    "id": 67,
+    "name": "Riga International Airport",
+    "ICAO": "EVRA",
+    "lat": 56.923611,
+    "lng": 23.971111,
+    "passengers": 7798382
+  },
+  {
+    "id": 68,
+    "name": "Bordeaux–Mérignac Airport",
+    "ICAO": "LFBD",
+    "lat": 44.828611,
+    "lng": -0.715278,
+    "passengers": 7703135
+  },
+  {
+    "id": 69,
+    "name": "Seville Airport",
+    "ICAO": "LEZL",
+    "lat": 37.418056,
+    "lng": -5.898889,
+    "passengers": 7544473
+  },
+  {
+    "id": 70,
+    "name": "Malta International Airport",
+    "ICAO": "LMML",
+    "lat": 35.857542,
+    "lng": 14.477439,
+    "passengers": 7310289
+  },
+  {
+    "id": 71,
+    "name": "Keflavík International Airport",
+    "ICAO": "BIKF",
+    "lat": 63.985,
+    "lng": -22.605556,
+    "passengers": 7247820
+  },
+  {
+    "id": 72,
+    "name": "Nantes Atlantique Airport",
+    "ICAO": "LFRS",
+    "lat": 47.156944,
+    "lng": -1.607778,
+    "passengers": 7227411
+  },
+  {
+    "id": 73,
+    "name": "Sofia Airport",
+    "ICAO": "LBSF",
+    "lat": 42.695,
+    "lng": 23.408333,
+    "passengers": 7107096
+  },
+  {
+    "id": 74,
+    "name": "Falcone–Borsellino Airport",
+    "ICAO": "LICJ",
+    "lat": 41.101343,
+    "lng": 15.871805,
+    "passengers": 7018087
+  },
+  {
+    "id": 75,
+    "name": "Thessaloniki Airport \"Macedonia",
+    "ICAO": "LGTS",
+    "lat": 40.519722,
+    "lng": 22.970917,
+    "passengers": 6897057
+  },
+  {
+    "id": 76,
+    "name": "Eindhoven Airport",
+    "ICAO": "EHEH",
+    "lat": 51.45,
+    "lng": 5.374444,
+    "passengers": 6780796
+  },
+  {
+    "id": 77,
+    "name": "Göteborg Landvetter Airport",
+    "ICAO": "ESGG",
+    "lat": 57.66,
+    "lng": 12.291111,
+    "passengers": 6671361
+  },
+  {
+    "id": 78,
+    "name": "Linate Airport",
+    "ICAO": "LIML",
+    "lat": 45.449444,
+    "lng": 9.278333,
+    "passengers": 6570984
+  },
+  {
+    "id": 79,
+    "name": "Bergen Airport, Flesland",
+    "ICAO": "ENBR",
+    "lat": 60.293611,
+    "lng": 5.218056,
+    "passengers": 6505827
+  },
+  {
+    "id": 80,
+    "name": "Langenhagen Airport",
+    "ICAO": "EDDV",
+    "lat": 52.460833,
+    "lng": 9.685,
+    "passengers": 6301366
   }
 ]

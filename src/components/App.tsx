@@ -1,5 +1,5 @@
 import {UIStore} from "../store/UIStore";
-import {Marker, Popup, TileLayer, MapContainer} from "react-leaflet";
+import {Marker, Popup, TileLayer, MapContainer, Polyline} from "react-leaflet";
 import L, {LatLngExpression} from "leaflet";
 
 import "leaflet/dist/leaflet.css";
@@ -9,7 +9,7 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 import {useEffect} from "react";
 
-import {Badge, Container} from "react-bootstrap";
+import {Badge, Card, CardColumns, Container} from "react-bootstrap";
 import '../styles/App.css';
 
 const DefaultIcon = L.icon({
@@ -25,15 +25,18 @@ const zoom: number = 5;
 
 const humanize = require('humanize-plus');
 
+const blackOptions = {color: 'black'};
 
 export const App = (): JSX.Element => {
-    const airportData = UIStore.useState(s => s.data);
+    const airportData = UIStore.useState(s => s.airport);
+    const flightData = UIStore.useState(s => s.flight);
 
     useEffect(() => {
-        console.log(airportData[0]);
+        console.log(airportData);
+        console.log(flightData);
     });
 
-    function getMapMarkers() {
+    function getMapMarkers(): JSX.Element {
         return <>
             {
                 airportData.map(airport => {
@@ -43,7 +46,7 @@ export const App = (): JSX.Element => {
                             <Popup>
                                 <h4>
                                     {airport.name}
-                                    <br />
+                                    <br/>
                                     <Badge variant="primary">{airport.ICAO}</Badge>
                                 </h4>
 
@@ -56,9 +59,50 @@ export const App = (): JSX.Element => {
         </>;
     }
 
+    function getFlightLines(adepid: number, adesid: number): JSX.Element {
+        const polyline: LatLngExpression[] = [
+            [airportData[adepid].lat, airportData[adepid].lng],
+            [airportData[adesid].lat, airportData[adesid].lng],
+        ];
+
+        return <>
+            {
+                <Polyline pathOptions={blackOptions} positions={polyline}/>
+            }
+        </>;
+    }
+
+    function listFlights(): JSX.Element {
+        return <>
+            {
+                flightData.map(flight => {
+                    const depTime = new Date( 1619845200000 + flight.depTime*1000);
+                    const arrTime = new Date( 1619845200000 + flight.arrTime*1000);
+                    return (
+                        <Card>
+                            <Card.Title style={{padding: "10px"}}>
+                                <Badge variant="primary">{airportData[flight.adepid].ICAO}</Badge>
+                                -
+                                <Badge variant="success">{airportData[flight.adesid].ICAO}</Badge>
+                            </Card.Title>
+
+                            <Card.Body>
+                                <small className="text-muted">
+                                    <b>Departure:</b> {depTime.toLocaleTimeString('ro-RO')}
+                                    <br />
+                                    <b>Arrival:</b> {arrTime.toLocaleTimeString('ro-RO')}
+                                </small>
+                            </Card.Body>
+                        </Card>
+                    );
+                })
+            }
+        </>;
+    }
+
     return (
         <Container className="rounded border border-light entire-page">
-            <Container fluid >
+            <Container fluid>
                 <h2 className="section-title text-center m-5">Traffic Network Generator</h2>
             </Container>
 
@@ -70,7 +114,17 @@ export const App = (): JSX.Element => {
                 />
 
                 {getMapMarkers()}
+                {getFlightLines(45, 2)}
             </MapContainer>
+
+            <Container fluid>
+                <h4 className="section-title text-center m-5">Flight List</h4>
+            </Container>
+            <Container fluid>
+                <CardColumns>
+                    {listFlights()}
+                </CardColumns>
+            </Container>
         </Container>
     )
 }
