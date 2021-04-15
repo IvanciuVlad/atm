@@ -10,7 +10,7 @@ type AirportData = {
     passengers: number
 }[];
 
-type FlightData = {
+export type FlightData = {
     id: number,
     adepid: number,
     adesid: number,
