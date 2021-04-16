@@ -12,8 +12,9 @@ import {useEffect, useState} from "react";
 
 import ScrollToTop from "./ScrollToTop";
 
-import {Badge, Button, Card, CardColumns, Container} from "react-bootstrap";
+import {Badge, Button, Card, CardColumns, Container, ListGroup, ListGroupItem} from "react-bootstrap";
 import '../styles/App.css';
+import {RenderFlights} from "./RenderFlight";
 
 // Icon needs to be added to leaflet, anchor must be set such that the marker point correctly at
 // the coordinate when zoomed in
@@ -31,7 +32,6 @@ const zoom: number = 5;
 
 const humanize = require('humanize-plus');
 
-const blackOptions = {color: 'black'};
 const PER_PAGE = 45; // adjusts number of card showing flights per page
 
 export const App = (): JSX.Element => {
@@ -80,19 +80,6 @@ export const App = (): JSX.Element => {
         </>;
     }
 
-    function getFlightLines(adepid: number, adesid: number): JSX.Element {
-        const polyline: LatLngExpression[] = [
-            [airportData[adepid].lat, airportData[adepid].lng],
-            [airportData[adesid].lat, airportData[adesid].lng],
-        ];
-
-        return <>
-            {
-                <Polyline pathOptions={blackOptions} positions={polyline}/>
-            }
-        </>;
-    }
-
     /**
      * Renders pagination buttons, guards are added such that redundant buttons are not shown at the beginning and end
      */
@@ -129,22 +116,22 @@ export const App = (): JSX.Element => {
                 pagesData.length > 0 && pagesData[currentPage].map(flight => {
                     const depTime = new Date(1619845200000 + flight.depTime * 1000);
                     const arrTime = new Date(1619845200000 + flight.arrTime * 1000);
-                    return (
-                        <Card>
-                            <Card.Title style={{padding: '10px'}}>
-                                <Badge variant="primary">{airportData[flight.adepid].ICAO}</Badge>
-                                -
-                                <Badge variant="success">{airportData[flight.adesid].ICAO}</Badge>
-                            </Card.Title>
 
-                            <Card.Body style={{padding: '10px'}}>
-                                <small className="text-muted">
-                                    <b>Departure:</b> {depTime.toLocaleTimeString('ro-RO')}
-                                    <br/>
-                                    <b>Arrival:</b> {arrTime.toLocaleTimeString('ro-RO')}
-                                </small>
-                            </Card.Body>
-                        </Card>
+                    return (
+                      <ListGroup>
+                          <ListGroupItem>
+                              <Badge pill variant="primary">{airportData[flight.adepid].ICAO}</Badge>
+                              -
+                              <Badge pill variant="success">{airportData[flight.adesid].ICAO}</Badge>
+                              <small><b>: {flight.flightDistance} KM</b></small>
+                              <br />
+                              <small className="text-muted">
+                                  <b>Departure:</b> {depTime.toLocaleTimeString('ro-RO')}
+                                  <br/>
+                                  <b>Arrival:</b> {arrTime.toLocaleTimeString('ro-RO')}
+                              </small>
+                          </ListGroupItem>
+                      </ListGroup>
                     );
                 })
             }
@@ -166,7 +153,10 @@ export const App = (): JSX.Element => {
                     />
 
                     {getMapMarkers()}
-                    {getFlightLines(45, 2)}
+                    {/*{getFlightLines(45, 2)}*/}
+                    <RenderFlights adep={[airportData[flightData[0].adepid].lat, airportData[flightData[0].adepid].lng]}
+                                   ades={[airportData[flightData[0].adesid].lat, airportData[flightData[0].adesid].lng]}
+                                   flightDistance={flightData[0].flightDistance} />
                 </MapContainer>
 
                 <Container fluid>
