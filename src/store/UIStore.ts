@@ -1,7 +1,7 @@
 import {Store} from "pullstate";
 import data from '../data/airports.json';
 
-type AirportData = {
+export type AirportData = {
     id: number,
     name: string,
     ICAO: string,

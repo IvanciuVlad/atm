@@ -1,12 +1,10 @@
 import {UIStore} from "../store/UIStore";
 import {FlightData} from "../store/UIStore";
-import {Marker, Popup, TileLayer, MapContainer} from "react-leaflet";
-import L, {LatLngExpression} from "leaflet";
+import {TileLayer, MapContainer} from "react-leaflet";
+import {LatLngExpression} from "leaflet";
 
 import "leaflet/dist/leaflet.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 import {useEffect, useState} from "react";
 
@@ -16,22 +14,11 @@ import {Badge, Button, CardColumns, Container, ListGroup, ListGroupItem} from "r
 import { ArrowRight } from 'react-bootstrap-icons';
 import '../styles/App.css';
 import {RenderFlights} from "./RenderFlight";
-
-// Icon needs to be added to leaflet, anchor must be set such that the marker point correctly at
-// the coordinate when zoomed in
-const DefaultIcon = L.icon({
-    iconUrl: icon,
-    shadowUrl: iconShadow,
-    iconAnchor: [13, 41],
-});
-
-L.Marker.prototype.options.icon = DefaultIcon;
+import {RenderMarkers} from "./RenderMarkers";
 
 // defining leaflet constants; values taken as it appears to cover most of europe
 const centerPosition: LatLngExpression = [48.20, 16.30]
 const zoom: number = 5;
-
-const humanize = require('humanize-plus');
 
 const PER_PAGE = 45; // adjusts number of card showing flights per page
 
@@ -54,32 +41,6 @@ export const App = (): JSX.Element => {
         }
         setPagesData(data)
     }, [flightData])
-
-    /**
-     * Iterates through the airport array and displays a marker for each one with badge containing information
-     */
-    function getMapMarkers(): JSX.Element {
-        return <>
-            {
-                airportData.map(airport => {
-                    const airportPosition: LatLngExpression = [airport.lat, airport.lng];
-                    return (
-                        <Marker position={airportPosition} icon={DefaultIcon}>
-                            <Popup>
-                                <h4>
-                                    {airport.name}
-                                    <br/>
-                                    <Badge variant="primary">{airport.ICAO}</Badge>
-                                </h4>
-
-                                {humanize.compactInteger(airport.passengers, 2)} passengers in 2019
-                            </Popup>
-                        </Marker>
-                    );
-                })
-            }
-        </>;
-    }
 
     /**
      * Renders pagination buttons, guards are added such that redundant buttons are not shown at the beginning and end
@@ -153,7 +114,9 @@ export const App = (): JSX.Element => {
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
 
-                    {getMapMarkers()}
+                    {/*{getMapMarkers()}*/}
+                    <RenderMarkers />
+
                     <RenderFlights adepid={flightData[0].adepid}
                                    adesid={flightData[0].adesid}
                                    flightDistance={flightData[0].flightDistance} />
