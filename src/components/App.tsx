@@ -1,6 +1,6 @@
 import {UIStore} from "../store/UIStore";
 import {FlightData} from "../store/UIStore";
-import {Marker, Popup, TileLayer, MapContainer, Polyline} from "react-leaflet";
+import {Marker, Popup, TileLayer, MapContainer} from "react-leaflet";
 import L, {LatLngExpression} from "leaflet";
 
 import "leaflet/dist/leaflet.css";
@@ -12,7 +12,8 @@ import {useEffect, useState} from "react";
 
 import ScrollToTop from "./ScrollToTop";
 
-import {Badge, Button, Card, CardColumns, Container, ListGroup, ListGroupItem} from "react-bootstrap";
+import {Badge, Button, CardColumns, Container, ListGroup, ListGroupItem} from "react-bootstrap";
+import { ArrowRight } from 'react-bootstrap-icons';
 import '../styles/App.css';
 import {RenderFlights} from "./RenderFlight";
 
@@ -41,9 +42,9 @@ export const App = (): JSX.Element => {
     const [currentPage, setCurrentPage] = useState<number>(0);
 
     useEffect(() => {
-        console.log(airportData);
-        console.log(flightData);
-        console.log(pagesData)
+        // console.log(airportData);
+        // console.log(flightData);
+        // console.log(pagesData)
     }, [airportData, flightData, pagesData]);
 
     useEffect(() => {
@@ -121,7 +122,7 @@ export const App = (): JSX.Element => {
                       <ListGroup>
                           <ListGroupItem>
                               <Badge pill variant="primary">{airportData[flight.adepid].ICAO}</Badge>
-                              -
+                              <ArrowRight />
                               <Badge pill variant="success">{airportData[flight.adesid].ICAO}</Badge>
                               <small><b>: {flight.flightDistance} KM</b></small>
                               <br />
@@ -153,9 +154,8 @@ export const App = (): JSX.Element => {
                     />
 
                     {getMapMarkers()}
-                    {/*{getFlightLines(45, 2)}*/}
-                    <RenderFlights adep={[airportData[flightData[0].adepid].lat, airportData[flightData[0].adepid].lng]}
-                                   ades={[airportData[flightData[0].adesid].lat, airportData[flightData[0].adesid].lng]}
+                    <RenderFlights adepid={flightData[0].adepid}
+                                   adesid={flightData[0].adesid}
                                    flightDistance={flightData[0].flightDistance} />
                 </MapContainer>
 

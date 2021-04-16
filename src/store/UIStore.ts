@@ -43,11 +43,11 @@ function calculateOrthodromeDistance(adepid: number, adesid: number, airportData
     const lat1:  number = airportData[adepid].lat * Math.PI / 180;
     const lat2:  number = airportData[adesid].lat * Math.PI / 180;
 
-    const x1: number = (airportData[adepid].lat - airportData[adesid].lat) * Math.PI / 180;
-    const x2: number = (airportData[adepid].lng - airportData[adesid].lng) * Math.PI / 180;
+    const delta_phi: number = (airportData[adepid].lat - airportData[adesid].lat) * Math.PI / 180;
+    const delta_lambda: number = (airportData[adepid].lng - airportData[adesid].lng) * Math.PI / 180;
 
-    const a = Math.sin(x1/2) * Math.sin(x1/2) +
-        Math.cos(x1) * Math.cos(lat1) * Math.cos(lat2) * Math.sin(x2/2) * Math.sin(x2/2);
+    const a = Math.sin(delta_phi/2) * Math.sin(delta_phi/2) +
+        Math.cos(delta_phi) * Math.cos(lat1) * Math.cos(lat2) * Math.sin(delta_lambda/2) * Math.sin(delta_lambda/2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
     return radiusWGS84 * c; // in KM
@@ -62,7 +62,7 @@ const generateFlights =  (noOfFlights: number, airports: AirportData): Flight[] 
         const adesid =  Math.floor(Math.random() * 80);
         const flightDistance = Math.floor(calculateOrthodromeDistance(adepid, adesid, airports));
 
-        if (flightDistance < 400)
+        if (flightDistance < 500)
             continue;
 
         const depTime = Math.floor(Math.random() * 28800);
