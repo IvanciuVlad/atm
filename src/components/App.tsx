@@ -42,8 +42,8 @@ export const App = (): JSX.Element => {
     const [currentPage, setCurrentPage] = useState<number>(0);
 
     useEffect(() => {
-        // console.log(airportData);
-        // console.log(flightData);
+        console.log(airportData);
+        console.log(flightData);
         // console.log(pagesData)
     }, [airportData, flightData, pagesData]);
 

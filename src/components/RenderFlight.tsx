@@ -8,10 +8,9 @@ type RenderFlightProps = {
     flightDistance: number
 }
 
-const blueOptions = {color: 'blue'};
 const blackOptions = {color: 'black'};
 const radiusWGS84 = 6371.009; // KM
-const f = 0.01; // fraction between the 2 points representing the airports
+const f = 0.01; // fraction between the 2 points representing the airports, lower number => better precision
 
 /**
  *
@@ -27,12 +26,6 @@ export const RenderFlights = (props: RenderFlightProps): JSX.Element => {
     const long2: number = airportData[props.adesid].lng * Math.PI / 180;
 
     const delta = props.flightDistance / radiusWGS84;
-
-    const polyline: LatLngExpression[] = [
-        [airportData[props.adepid].lat, airportData[props.adepid].lng],
-        [airportData[props.adesid].lat, airportData[props.adesid].lng],
-    ];
-
 
     function drawOrthodrome():JSX.Element {
 
@@ -55,7 +48,7 @@ export const RenderFlights = (props: RenderFlightProps): JSX.Element => {
         console.log(orthodromePolyline);
         return <>
             {
-                <Polyline pathOptions={blueOptions} positions={orthodromePolyline}/>
+                <Polyline pathOptions={blackOptions} positions={orthodromePolyline}/>
             }
         </>;
     }
