@@ -44,8 +44,8 @@ export const RenderFlights = (props: RenderFlightProps): JSX.Element => {
             const lambda = Math.atan2(y, x) * 180 / Math.PI;
             orthodromePolyline.splice(orthodromePolyline.length-1, 0, [phi, lambda]);
         }
-        console.log("Polyline: ");
-        console.log(orthodromePolyline);
+        //console.log("Polyline: ");
+        //console.log(orthodromePolyline);
         return <>
             {
                 <Polyline pathOptions={blackOptions} positions={orthodromePolyline}/>
