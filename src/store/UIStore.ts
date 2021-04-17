@@ -25,7 +25,7 @@ type UIStoreProps = {
     flight: FlightData
 }
 
-type Flight = {
+export type Flight = {
     id: number,
     adepid: number,
     adesid: number,
@@ -43,7 +43,7 @@ function calculateOrthodromeDistance(adepid: number, adesid: number, airportData
     const lat1: number = airportData[adepid].lat * Math.PI / 180;
     const lat2: number = airportData[adesid].lat * Math.PI / 180;
 
-    // calculaing the delta between the coordinates
+    // calculating the delta between the coordinates
     const delta_phi: number = (airportData[adepid].lat - airportData[adesid].lat) * Math.PI / 180;
     const delta_lambda: number = (airportData[adepid].lng - airportData[adesid].lng) * Math.PI / 180;
 

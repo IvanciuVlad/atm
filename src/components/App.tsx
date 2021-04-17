@@ -1,4 +1,4 @@
-import {UIStore} from "../store/UIStore";
+import {Flight, UIStore} from "../store/UIStore";
 import {FlightData} from "../store/UIStore";
 import {TileLayer, MapContainer} from "react-leaflet";
 import {LatLngExpression} from "leaflet";
@@ -27,11 +27,12 @@ export const App = (): JSX.Element => {
     const flightData = UIStore.useState(s => s.flight);
     const [pagesData, setPagesData] = useState<FlightData[]>([])
     const [currentPage, setCurrentPage] = useState<number>(0);
+    const [currentFlight, setCurrentFlight] = useState<Flight>();
 
     useEffect(() => {
         console.log(airportData);
         console.log(flightData);
-        // console.log(pagesData)
+        console.log(pagesData)
     }, [airportData, flightData, pagesData]);
 
     useEffect(() => {
@@ -81,7 +82,7 @@ export const App = (): JSX.Element => {
 
                     return (
                       <ListGroup>
-                          <ListGroupItem>
+                          <ListGroupItem action variant="light" onClick={() => setCurrentFlight(flight)}>
                               <Badge pill variant="primary">{airportData[flight.adepid].ICAO}</Badge>
                               <ArrowRight />
                               <Badge pill variant="success">{airportData[flight.adesid].ICAO}</Badge>
@@ -100,6 +101,14 @@ export const App = (): JSX.Element => {
         </>;
     }
 
+    function showFlightPlan() {
+        if(currentFlight)
+            return <RenderFlights adepid={currentFlight.adepid} adesid={currentFlight.adesid}
+                                  flightDistance={currentFlight.flightDistance} />
+        else return <div>
+        </div>;
+    }
+
     return (
         <div>
             <Container className="rounded border border-light entire-page">
@@ -114,12 +123,9 @@ export const App = (): JSX.Element => {
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
 
-                    {/*{getMapMarkers()}*/}
                     <RenderMarkers />
 
-                    <RenderFlights adepid={flightData[0].adepid}
-                                   adesid={flightData[0].adesid}
-                                   flightDistance={flightData[0].flightDistance} />
+                    {showFlightPlan()}
                 </MapContainer>
 
                 <Container fluid>
@@ -129,6 +135,8 @@ export const App = (): JSX.Element => {
                     <div className="text-center" style={{marginBottom: '10px'}}>
                         {renderPaginationButton()}
                     </div>
+                </Container>
+                <Container fluid>
                     <CardColumns>
                         {listFlights()}
                     </CardColumns>
