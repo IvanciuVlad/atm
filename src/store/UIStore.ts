@@ -1,6 +1,8 @@
 import {Store} from "pullstate";
 import data from '../data/airports.json';
 
+const departureTimeSeparation = 300;
+
 export type AirportData = {
     id: number,
     name: string,
@@ -84,7 +86,7 @@ export const checkConflicts = (timeInterval: number, flights: FlightData): Recor
     for(const adesid in sameAdesFlights) {
         const someFlights = sameAdesFlights[adesid];
         someFlights.sort((a, b) => a.arrTime - b.arrTime);
-        console.log("Some flights", someFlights);
+        // console.log("Some flights", someFlights);
         const conflicted = new Set<Flight>()
 
         for(let idx = 0; idx < someFlights.length - 1; idx++) {
@@ -97,13 +99,28 @@ export const checkConflicts = (timeInterval: number, flights: FlightData): Recor
         conflicts[adesid] = [...(conflicts[adesid] || []), ...Array.from(conflicted)];
     }
 
-    console.log("Conflicts: ", conflicts);
+    // console.log("Conflicts: ", conflicts);
 
     return conflicts;
 }
 
+const checkDepartureConflict = (depTime: number, departures: number[]): boolean => {
+    if(departures === [])
+        return false;
+    departures.sort((a, b) => a - b);
+    departures.forEach((time) => {
+        if(Math.abs(time - depTime) < departureTimeSeparation) {
+            return true;
+        }
+    })
+
+    return false;
+}
+
 const generateFlights = (noOfFlights: number, airports: AirportData): Flight[] => {
     const flights: Flight[] = [];
+    const departureByAirport:Record<string, number[]> = {};
+
     for (let i = 0; i < noOfFlights; i++) {
         const speed = 830; // km/h
 
@@ -119,8 +136,12 @@ const generateFlights = (noOfFlights: number, airports: AirportData): Flight[] =
         if (flightDistance < 500)
             continue;
 
-        // depTime is considered randomly in an 8 hour interval
+        // depTime is considered randomly in an 8 hour interval, we skip it if it's too close to another flight
         const depTime = Math.floor(Math.random() * 28800);
+
+        if(departureByAirport[adepid] && checkDepartureConflict(depTime, departureByAirport[adepid]))
+            continue;
+
         const flightTime = Math.floor(3600 * flightDistance / speed); // in s
         let flight: Flight = {
             id: i,
@@ -132,6 +153,7 @@ const generateFlights = (noOfFlights: number, airports: AirportData): Flight[] =
             arrTime: depTime + flightTime
         }
         flights.push(flight);
+        departureByAirport[adepid] = [...(departureByAirport[adepid] || []), depTime];
     }
 
     return flights;

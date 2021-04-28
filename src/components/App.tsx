@@ -34,7 +34,7 @@ export const App = (): JSX.Element => {
 
     useEffect(() => {
         //console.log(airportData);
-        console.log(flightData);
+        // console.log(flightData);
         //console.log(pagesData);
     }, [airportData, flightData, pagesData]);
 
